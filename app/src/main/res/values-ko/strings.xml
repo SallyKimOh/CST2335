@@ -3,4 +3,9 @@
     <string name="app_name">AndroidLabs</string>
     <string name="hello_message">안녕하세요!!</string>
     <string name="ButtonText">나는 버튼이야.</string>
+    <string name="login">로그인</string>
+    <string name="pw">패스워드</string>
+    <string name="rb">RadioButton</string>
+    <string name="cb">CheckBox</string>
+    <string name="sw">What does this do?</string>
 </resources>
