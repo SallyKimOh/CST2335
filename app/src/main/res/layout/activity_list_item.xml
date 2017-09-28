@@ -5,7 +5,11 @@
     android:rowCount="2"
     android:columnCount="2"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp">
+    android:layout_columnWeight="1"
+    android:layout_gravity="fill"
+    android:layout_centerHorizontal="true"
+    android:orientation="horizontal"
+    android:layout_margin="5dp">
 
     <RadioButton
         android:id="@+id/radio_button"
@@ -16,17 +20,19 @@
         android:id="@+id/check_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAlignment="center"
         android:text="@string/cb" />
     <Switch
         android:id="@+id/switch_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sw" />
+
     <ImageButton
         android:id="@+id/image_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawable="@drawable/camera"/>
+        android:src="@android:drawable/ic_menu_camera" />
 
 1
 </GridLayout>

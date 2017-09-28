@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AndroidLabs</string>
+    <string name="app_name">랩</string>
     <string name="hello_message">안녕하세요!!</string>
     <string name="ButtonText">나는 버튼이야.</string>
     <string name="login">로그인</string>
     <string name="pw">패스워드</string>
-    <string name="rb">RadioButton</string>
-    <string name="cb">CheckBox</string>
-    <string name="sw">What does this do?</string>
+    <string name="rb">라디오버튼</string>
+    <string name="cb">체크박스</string>
+    <string name="sw">이것은 무엇이니?</string>
+    <string name="sw_on">스위치가 켜졌어</string>
+    <string name="sw_off">스위치가 꺼졌어</string>
+    <string name="dialog_message">끝날래?</string>
+    <string name="dialog_title">알림</string>
+    <string name="dialog_yes">응답이야</string>
+    <string name="dialog_no">취소했어.</string>
+    <string name="toast_alt1">ListItemsActivity passed: 돌아갈래 리스트 아이템으로</string>
+    <string name="toast_alt2">돌아갈래 스타트 액티비티로(StartActivity.onActivityResult)</string>
+    <string name="ok">확인</string>
+    <string name="cancel">취소</string>
 </resources>

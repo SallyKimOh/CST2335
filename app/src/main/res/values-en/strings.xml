@@ -8,4 +8,14 @@
     <string name="rb">RadioButton</string>
     <string name="cb">CheckBox</string>
     <string name="sw">What does this do?</string>
+    <string name="sw_on">Switch is ON</string>
+    <string name="sw_off">Switch is Off</string>
+    <string name="dialog_message">Dialog message</string>
+    <string name="dialog_title">title</string>
+    <string name="dialog_yes">Here is my response</string>
+    <string name="dialog_no">Cancel</string>
+    <string name="toast_alt1">ListItemsActivity passed: My information to share</string>
+    <string name="toast_alt2">Returned to StartActivity.onActivityResult</string>
+    <string name="ok">ok</string>
+    <string name="cancel">cancel</string>
 </resources>
