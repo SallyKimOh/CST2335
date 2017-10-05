@@ -30,9 +30,21 @@ public class StartActivity extends Activity {
 
                     }
                 }
-
-
         );
+
+        Button btn2 = (Button) findViewById(R.id.btn2);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            public void onClick (View v) {
+                Log.i(Activity_Name, getString(R.string.LogMesStartChat));
+                Intent intent = new Intent(StartActivity.this, ChatWindowActivity.class);
+                startActivity(intent);
+//                Intent getResult = new Intent(
+//                        getApplicationContext(), ChatWindowActivity.class);
+//                startActivityForResult(getResult, MESSAGE_REQUEST_CODE);
+
+            }
+        });
+
 
     }
 
