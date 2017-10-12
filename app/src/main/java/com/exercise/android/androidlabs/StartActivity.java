@@ -28,7 +28,7 @@ public class StartActivity extends Activity {
                                 getApplicationContext(), ListItemActivity.class);
                         startActivityForResult(getResult, MESSAGE_REQUEST_CODE);
 
-                    }
+                    } 
                 }
         );
 

@@ -18,4 +18,7 @@
     <string name="toast_alt2">Returned to StartActivity.onActivityResult</string>
     <string name="ok">ok</string>
     <string name="cancel">cancel</string>
+    <string name="BtnText2">Start Chat</string>
+    <string name="LogMesStartChat">User clicked Start Chat</string>
+    <string name="btnSend">Send</string>
 </resources>
