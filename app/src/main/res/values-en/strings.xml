@@ -20,5 +20,9 @@
     <string name="cancel">cancel</string>
     <string name="BtnText2">Start Chat</string>
     <string name="LogMesStartChat">User clicked Start Chat</string>
+    <string name="btnWeatherTxt">Weather Forecast</string>
     <string name="btnSend">Send</string>
+    <string name="currTem">Current Temperature</string>
+    <string name="minTem">Min Temperature</string>
+    <string name="maxTem">Max Temperature</string>
 </resources>

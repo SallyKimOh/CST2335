@@ -45,6 +45,15 @@ public class StartActivity extends Activity {
             }
         });
 
+        Button btn_weather = (Button) findViewById(R.id.btn_weather);
+        btn_weather.setOnClickListener(new View.OnClickListener() {
+            public void onClick (View v) {
+                Log.i(Activity_Name, getString(R.string.LogMesStartChat));
+                Intent intent = new Intent(StartActivity.this, WeatherForecastActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
     }
 

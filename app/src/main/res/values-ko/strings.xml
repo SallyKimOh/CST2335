@@ -21,4 +21,8 @@
     <string name="BtnText2">대화 시작</string>
     <string name="LogMesStartChat">대화시작버튼누름</string>
     <string name="btnSend">보내기</string>
+    <string name="btnWeatherTxt">날씨정보</string>
+    <string name="currTem">현재 온도</string>
+    <string name="minTem">최저 온도</string>
+    <string name="maxTem">최고 온도</string>
 </resources>
