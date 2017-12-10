@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <supports-screens android:requiresSmallestWidthDp="600" />
 
     <application
         android:allowBackup="true"
@@ -16,7 +17,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light">
         <activity android:name=".StartActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,6 +24,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity">
+
             <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,19 +43,19 @@
             </intent-filter>
             -->
         </activity>
-
         <activity android:name=".ChatWindowActivity" />
         <activity android:name=".WeatherForecastActivity">
-    <!--
+
+            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
--->
+            -->
         </activity>
-
-
+        <activity android:name=".MessageDetailActivity" />
+        <activity android:name=".MessageFragmentActivity"></activity>
     </application>
 
 </manifest>

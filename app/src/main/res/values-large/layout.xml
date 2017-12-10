@@ -1,0 +1,3 @@
+<resources>
+    <item name="main" type="layout">@layout/activity_chat_window</item>
+</resources>

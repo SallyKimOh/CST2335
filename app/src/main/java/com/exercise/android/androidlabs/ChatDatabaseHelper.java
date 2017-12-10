@@ -13,13 +13,15 @@ public class ChatDatabaseHelper extends SQLiteOpenHelper {
 
     protected static final String ACTIVITY_NAME = "ChatDatabaseHelper";
     private static final String DATABASE_NAME = "Messages.db";
-    private static final int VERSION_NUM = 3;
+    private static final int VERSION_NUM = 1;
     protected static final String TABLE_NAME = "CHAT";
     protected static final String KEY_ID = "keyId";
     protected static final String KEY_MESSAGE = "msg";
 
+//    private static final String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME + " (" +
+//            KEY_ID + " TEXT, " + KEY_MESSAGE + " TEXT);";
     private static final String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME + " (" +
-            KEY_ID + " TEXT, " + KEY_MESSAGE + " TEXT);";
+            KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_MESSAGE + " TEXT);";
 
     private static final String TABLE_DROP = "DROP TABLE IF EXISTS " + TABLE_NAME;
 

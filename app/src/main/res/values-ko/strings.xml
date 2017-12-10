@@ -25,4 +25,6 @@
     <string name="currTem">현재 온도</string>
     <string name="minTem">최저 온도</string>
     <string name="maxTem">최고 온도</string>
+    <string name="MsgId">" 아이디="</string>
+    <string name="BtnDelMsg">메시지 지우기 </string>
 </resources>

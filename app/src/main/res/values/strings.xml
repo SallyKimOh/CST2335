@@ -24,6 +24,9 @@
     <string name="currTem">Current Temperature</string>
     <string name="minTem">Min Temperature</string>
     <string name="maxTem">Max Temperature</string>
+    <string name="msgHea">MessageHear</string>
+    <string name="MsgId">ID=</string>
+    <string name="BtnDelMsg">Delete this message</string>
 
 
 </resources>
