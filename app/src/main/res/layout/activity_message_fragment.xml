@@ -9,6 +9,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dip"
+            android:gravity="center_vertical|start"
             android:text="@string/msgHea"/>
         <TextView
             android:id="@+id/txt_id"
@@ -17,6 +18,7 @@
             android:layout_marginLeft="10dip"
             android:layout_marginTop="10dp"
             android:layout_below="@+id/txt_hear"
+            android:gravity="center_vertical|start"
             android:text="@string/MsgId"/>
 
         <Button
