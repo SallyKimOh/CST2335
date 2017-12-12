@@ -1,18 +1,13 @@
 package com.exercise.android.androidlabs;
 
 import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +24,6 @@ import java.util.ArrayList;
 
 import static com.exercise.android.androidlabs.ChatDatabaseHelper.KEY_ID;
 
-//public class ChatWindowActivity extends AppCompatActivity {
 public class ChatWindowActivity extends Activity {
 //public class ChatWindowActivity extends FragmentActivity {
 
@@ -101,9 +95,8 @@ public class ChatWindowActivity extends Activity {
         final Bundle info = new Bundle();
 
         info.putString("key","value");
-
-//        if (flo != null) {
-        if (findViewById(R.id.txt_hear) != null) {
+        if (flo != null) {
+//        if (findViewById(R.id.txt_hear) != null) {
             //            mf.setArguments(info);
 ////            FragmentTransaction ft =  getFragmentManager().beginTransaction();
 //            ft =  getFragmentManager().beginTransaction();
@@ -133,9 +126,9 @@ public class ChatWindowActivity extends Activity {
                 info.putStringArrayList("msgList",msg);
                 intent.putExtras(info);
 //                startActivity(intent);
-//                if (flo == null) {
+                if (flo == null) {
 
-                    if (findViewById(R.id.txt_hear) == null) {
+//                    if (findViewById(R.id.txt_hear) == null) {
                     startActivityForResult(intent, 2, info);
                 } else {
 
