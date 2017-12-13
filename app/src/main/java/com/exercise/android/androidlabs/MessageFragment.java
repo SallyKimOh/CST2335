@@ -5,9 +5,11 @@ import android.app.Fragment;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -27,13 +29,12 @@ public class MessageFragment extends Fragment {
     private String frameType;
     private String pos;
     private ArrayList<String> list;
-
+    private boolean isTablet;
 
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        Log.i("fsafdsfa:","fadsfdasfadsf");
 
         Bundle passedInfo = getArguments();
 
@@ -45,29 +46,33 @@ public class MessageFragment extends Fragment {
             frameType = passedInfo.getString("frameType");
             pos = passedInfo.getString("pos");
             list = passedInfo.getStringArrayList("msgList");
+            isTablet = Boolean.valueOf(passedInfo.get("isTablet").toString());
         }
- //       Log.i("passedInfo key", passedInfo.get("key").toString());
-//        Log.i("Passed key", s);
+        Log.i("isTablet key", ""+Boolean.valueOf(passedInfo.get("isTablet").toString()));
+        Log.i("isTablet key", ""+isTablet);
 
          parent = activity;
     }
 
+    private  TextView t1;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.i("frame:","=================");
 
         View v = inflater.inflate(R.layout.activity_message_fragment, container, false);
-//        TextView txtMsg = (TextView)v.findViewById(R.id.txt_hear);
-//        txtMsg.setText(txt_hear);
+//        View v = inflater.inflate(R.layout.activity_message_fragment, null);
+
         ((TextView) v.findViewById(R.id.txt_hear)).setText(txt_hear);
         ((TextView) v.findViewById(R.id.txt_id)).setText(txt_id);
 
         Button b = (Button)v.findViewById(R.id.btn_del);
+
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (frameType == "0") {
+                Log.i("tablet",""+isTablet);
+                if (!isTablet) {
                     parent.getFragmentManager().beginTransaction().remove(MessageFragment.this).commit();
                     getActivity().setResult(Activity.RESULT_OK, parent.getIntent());
                     String returnVal = parent.getIntent().getStringExtra("id");
@@ -90,15 +95,15 @@ public class MessageFragment extends Fragment {
                     db = cdHelp.getWritableDatabase();
                     db.delete(cdHelp.TABLE_NAME, KEY_ID + "=?", new String[]{String.valueOf(txt_id)});
                     Log.i("=======remove===>", "");
-                    chA.deleteContactTab(Integer.parseInt(txt_id),Integer.parseInt(pos)); ;
+ //                   chA.deleteContactTab(Integer.parseInt(txt_id),Integer.parseInt(pos));
 
-
+                    chA.getMsg().remove(Integer.parseInt(pos));
                 }
 
             }
         });
 
-       return v;
+        return v;
     }
 
 

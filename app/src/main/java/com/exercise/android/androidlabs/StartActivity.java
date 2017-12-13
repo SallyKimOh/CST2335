@@ -65,7 +65,7 @@ public class StartActivity extends Activity {
             Log.i(Activity_Name, getString(R.string.toast_alt2));
         }
 
-        String messagePassed = data.getStringExtra("data");
+//        String messagePassed = data.getStringExtra("data");
 
         if (responseCode == Activity.RESULT_OK) {
             Log.i(Activity_Name, getString(R.string.toast_alt2));

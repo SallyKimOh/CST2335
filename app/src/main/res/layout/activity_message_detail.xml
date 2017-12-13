@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+tools:context="com.exercise.android.androidlabs.MessageDetailActivity"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent">
+
+
+<FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.exercise.android.androidlabs.MessageDetailActivity">
+    android:id="@+id/frame"
+    android:background="@color/colorPrimary"/>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/msg_bg"
-        android:background="@color/colorPrimary"/>
-
-</LinearLayout>
+</RelativeLayout>

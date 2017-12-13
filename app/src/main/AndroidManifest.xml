@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+
     <supports-screens android:requiresSmallestWidthDp="600" />
 
     <application
@@ -55,7 +56,8 @@
             -->
         </activity>
         <activity android:name=".MessageDetailActivity" />
-        <activity android:name=".MessageFragmentActivity"></activity>
+        <activity android:name=".MessageFragmentActivity" />
+        <activity android:name=".EmptyFragmentActivity"></activity>
     </application>
 
 </manifest>

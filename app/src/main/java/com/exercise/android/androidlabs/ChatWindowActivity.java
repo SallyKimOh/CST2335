@@ -9,11 +9,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Point;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +41,9 @@ public class ChatWindowActivity extends Activity {
     Button btn;
     FrameLayout flo;
 
+
     ArrayList<String> msg = new ArrayList<>();
+
     ChatAdapter adapter;
     SQLiteDatabase db;
     ChatDatabaseHelper cdHelp;
@@ -47,23 +51,22 @@ public class ChatWindowActivity extends Activity {
     long curID;
     FragmentTransaction ft;
     int frameType = 0;
+    boolean isTablet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_window);
+        isTablet = findViewById(R.id.frame) != null;
 
-        Log.i("ADSFADSF","ADSFADS");
+        Log.i("tablet",""+isTablet);
 
         lv = (ListView)findViewById(R.id.listMsg);
         et = (EditText)findViewById(R.id.edit1);
         btn = (Button)findViewById(R.id.btnSend);
-        flo = (FrameLayout)findViewById(R.id.msg_bg) ;
+        flo = (FrameLayout)findViewById(R.id.frame) ;
 
-
-//        ExampleFragment fragment = (ExampleFragment) getFragmentManager().findFragmentById(R.id.example_fragment);
-
-        msg = new ArrayList<String>();
+ //       msg = new ArrayList<String>();
         adapter = new ChatAdapter(this);
         lv.setAdapter(adapter);
 
@@ -97,55 +100,31 @@ public class ChatWindowActivity extends Activity {
         );
 
 
-        final MessageFragment mf = new MessageFragment();
-        final Bundle info = new Bundle();
-
-        info.putString("key","value");
-
-//        if (flo != null) {
-        if (findViewById(R.id.txt_hear) != null) {
-            //            mf.setArguments(info);
-////            FragmentTransaction ft =  getFragmentManager().beginTransaction();
-//            ft =  getFragmentManager().beginTransaction();
-//            ft.add(R.id.msg_bg, mf);
-//            ft.addToBackStack("A string name");
-////            ft.commit();
-            frameType = 1;
-        } else {
-//            Intent phoneIntent = new Intent(ChatWindowActivity.this, MessageDetailActivity.class);
-//            phoneIntent.putExtras(info);
-//            startActivity(phoneIntent);
-
-        }
-        Log.i("IsTablet?" , String.valueOf(frameType));
-
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View v, int pos, long id) {
+
+                Bundle info = new Bundle();
                 curID = adapter.getItemId(pos);
                 Intent intent = new Intent(ChatWindowActivity.this,MessageDetailActivity.class);
-//                intent.putExtra("Message",lv.getItemIdAtPosition(pos));
+                intent.putExtra("Message",lv.getItemIdAtPosition(pos));
                 info.putString("msg",msg.get(pos));
                 info.putString("id",String.valueOf(curID));
+                info.putBoolean("isTablet",isTablet);
                 info.putString("type",String.valueOf(frameType));
                 info.putString("pos",String.valueOf(pos));
                 info.putStringArrayList("msgList",msg);
                 intent.putExtras(info);
-//                startActivity(intent);
-//                if (flo == null) {
 
-                    if (findViewById(R.id.txt_hear) == null) {
-                    startActivityForResult(intent, 2, info);
+                   if (isTablet) {
+                    MessageFragment mf1 = new MessageFragment();
+                    mf1.setArguments(info);
+//                    getFragmentManager().beginTransaction().add(R.id.frame,mf1).commit();
+                    getFragmentManager().beginTransaction().replace(R.id.frame,mf1).commit();
+
                 } else {
-
-                    MessageFragment mesF = new MessageFragment();
-                    mesF.setArguments(info);
-                    Log.i("return 11111:",""+mesF.getReturnTransition());
-//                    getFragmentManager().beginTransaction().replace(R.id.msg_bg,mesF).commit();
-                    getFragmentManager().beginTransaction().add(R.id.msg_bg,mesF).commit();
-
-                    Log.i("return mesf:",""+mesF.getArguments());
+                    startActivityForResult(intent, 2, info);
 
                 }
 
@@ -199,27 +178,43 @@ public class ChatWindowActivity extends Activity {
     }
 
     // Deleting single contact
-    public void deleteContactTab(int resultCode,int pos) {
+//    public void deleteContactTab(int resultCode,int pos) {
+    public ArrayList<String> deleteContactTab(int resultCode,int pos) {
         Log.i("=======resultcode===>", ""+resultCode);
 //            db.delete(cdHelp.TABLE_NAME, KEY_ID + "=?", new String[]{String.valueOf(resultCode)});
 //        db.delete(cdHelp.TABLE_NAME, KEY_ID + "=3", null);
 //            Log.i("=======remove===>", "");
 //            getList();
 
-        msg = getMsg();
-        Log.i("=======size===>", ""+msg.size());
-        msg.remove(2);
+//        msg = getMsg();
+        Log.i("=======size===>", ""+msg.size()+"/"+pos);
+//        msg.remove(pos);
+        msg.clear();
+//        msg = new ArrayList<>();
+//        adapter = new ChatAdapter(new ChatWindowActivity());
+//        lv.removeAllViews();
+//        lv.setAdapter(adapter);
+//        msg.clear();
 
-//        ChatAdapter adapter1 = new ChatAdapter(this);
-//        lv.setAdapter(adapter1);
+
+
+        System.out.println(msg);
+//        ChatWindowActivity chA = new ChatWindowActivity();
+//        chA.setMsg(msg);
+
+//        ChatAdapter adapter1 = new ChatAdapter(new ChatWindowActivity());
+//        lv.setAdapter(adapter);
 //
 //        adapter1.notifyDataSetChanged();
 
-        new ChatWindowActivity();
-
+//          new ChatWindowActivity();
+//
 //        cdHelp = new ChatDatabaseHelper(getApplicationContext());
 //        db = cdHelp.getWritableDatabase();
 //        getList();
+
+
+        return msg;
     }
 
 
@@ -233,15 +228,24 @@ public class ChatWindowActivity extends Activity {
         msg = new ArrayList<>();
         cursor.moveToFirst();
         while(!cursor.isAfterLast()) {
-//            Log.i(Activity_Name,"SQL MESSAGE:"+ cursor.getString( cursor.getColumnIndex( ChatDatabaseHelper.KEY_MESSAGE) ) );
-//            Log.i(Activity_Name,"SQL key:"+ KEY_ID);
-//            Log.i(Activity_Name,"SQL key:"+ cursor.getString( cursor.getColumnIndex( KEY_ID) ));
-
             msg.add(cursor.getString( cursor.getColumnIndex( ChatDatabaseHelper.KEY_MESSAGE) ));
             cursor.moveToNext();
         }
 
     }
+
+
+    public void getList1(){
+        String sql = "select "+ KEY_ID +", " + cdHelp.KEY_MESSAGE +"  from " + cdHelp.TABLE_NAME;
+        cursor = db.rawQuery(sql,null);
+
+        msg.add("AAAA");
+        msg.add("bb");
+        msg.add("cc");
+        msg.add("dd");
+
+    }
+
 
 
     public void onDestroy(){

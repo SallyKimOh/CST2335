@@ -2,18 +2,14 @@ package com.exercise.android.androidlabs;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 
-public class MessageDetailActivity extends Activity {
+public class EmptyFragmentActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_message_detail);
-
-        Log.i("MessageDetailActive","");
+        setContentView(R.layout.activity_empty_fragment);
         Bundle info = getIntent().getExtras();
 
         info.putString("Key", "From phone");
