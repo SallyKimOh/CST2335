@@ -27,4 +27,9 @@
     <string name="maxTem">최고 온도</string>
     <string name="MsgId">" 아이디="</string>
     <string name="BtnDelMsg">메시지 지우기 </string>
+    <string name="BtnToolBar">테스트 툴바</string>
+    <string name="LogMesStartToolbar">툴바 시작</string>
+    <string name="itemSelect1">버전 1.0, by 김세일</string>
+    <string name="pick_color">탭시험</string>
+    <string name="diaTitle">Do you want to go back?</string>
 </resources>

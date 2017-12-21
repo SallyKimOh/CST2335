@@ -27,4 +27,9 @@
     <string name="maxTem">Max Temperature</string>
     <string name="MsgId">ID=</string>
     <string name="BtnDelMsg">Delete this message</string>
+    <string name="BtnToolBar">Test Toolbar</string>
+    <string name="LogMesStartToolbar">Start Toolbar</string>
+    <string name="itemSelect1">Version 1.0, by Sae il Kim</string>
+    <string name="pick_color">tab test</string>
+    <string name="diaTitle">Do you want to go back?</string>
 </resources>
